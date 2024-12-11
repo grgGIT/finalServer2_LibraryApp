@@ -1,0 +1,21 @@
+
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "Book Title",
+      "author": "Author Name",
+      "genre": "Fiction",
+      "price": 10,
+      "quantity": 5
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "User Name",
+      "wallet": 100,
+      "rentedBooks": []
+    }
+  ]
+}

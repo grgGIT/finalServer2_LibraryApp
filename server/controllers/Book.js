@@ -2,6 +2,7 @@
  const models = require('../models');
  const { Book } = models;
 
+ //schema to fit the json and the database entries
 const BookSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -49,6 +50,7 @@ BookSchema.statics.toAPI = (doc) => ({
   createdDate: doc.createdDate,
 });
 
+//gets all
 const getBooks = async (req, res) => {
   try {
     const books = await BookModel.find().lean().exec();
@@ -61,6 +63,7 @@ const getBooks = async (req, res) => {
   }
 };
 
+//manually add all fields
 const addBook = async (req, res) => {
   if (!req.body.title || !req.body.author || !req.body.price || !req.body.quantity) {
     return res.status(400).json({ error: 'All fields are required' });

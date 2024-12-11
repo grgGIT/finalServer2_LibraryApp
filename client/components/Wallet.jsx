@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { getUserBalance } from '../services/dataService'; // Adjust the import path as necessary
 
-const Wallet = () => {
+//this should grab their balance from the JSON and display it on the wallet page
+const Wallet = ({ userId }) => {
   const [balance, setBalance] = useState(0);
 
-  // Logic to update balance based on rentals and returns
+  useEffect(() => {
+    const balance = getUserBalance(userId);
+    setBalance(balance);
+  }, [userId]);
 
   return (
     <div>
-      <h2>Wallet Balance: ${balance}</h2>
+      <h2>Wallet Balance</h2>
+      <p>${balance}</p>
     </div>
   );
 };

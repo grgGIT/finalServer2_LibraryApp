@@ -1,4 +1,19 @@
-/* BookGrid.css */
+/* Example CSS for different genres */
+.fiction-font {
+  font-family: 'Times New Roman', serif; /* Example font for fiction */
+}
+
+.dystopian-font {
+  font-family: 'Courier New', monospace; /* Example font for dystopian */
+}
+
+.romance-font {
+  font-family: 'Georgia', serif; /* Example font for romance */
+}
+
+.default-font {
+  font-family: 'Arial', sans-serif; /* Default font */
+}/* BookGrid.css */
 
 .book-grid {
   display: grid;

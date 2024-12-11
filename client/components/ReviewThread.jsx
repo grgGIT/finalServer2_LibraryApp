@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+//should be what renders the reviews for a given book
 const ReviewThread = ({ reviews }) => {
   const [expanded, setExpanded] = useState(false);
 

@@ -10,6 +10,8 @@ const logout = (req, res) => {
   res.redirect('/');
 };
 // eslint-disable-next-line no-unused-vars
+
+//makes sure all fields have been filled out
 const login = (req, res) => {
   const username = `${req.body.username}`;
   const pass = `${req.body.pass}`;
@@ -27,6 +29,7 @@ const login = (req, res) => {
   });
 };
 
+//makes sure entries match
 const signup = async (req, res) => {
   const username = `${req.body.username}`;
   const pass = `${req.body.pass}`;

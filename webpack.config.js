@@ -2,9 +2,12 @@ const path = require('path');
 
 module.exports = {
     entry: {
-    app: './client/maker.jsx',
+    app: './client/components/BookGrid.jsx',
     login: './client/login.jsx',
-    game: './client/game.jsx',
+    card: './client/components/BookCard.jsx',
+    thread: './client/components/ReviewThread.jsx',
+    user: './client/components/UserAccount.jsx',
+    wallet: './client/components/Wallet.jsx',
     },
     module:{
         rules: [

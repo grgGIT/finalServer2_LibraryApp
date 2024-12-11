@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import BookCard from './BookCard';
-import './BookGrid.css'; // Assuming you have a CSS file for styling
+import './BookGrid.css'; // Ensure your CSS file includes styles for different genres
 
+//is what creates the layout of books in a grid format
 const BookGrid = () => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    fetch('/api/books') // Adjust the endpoint as necessary
+    fetch('/api/books')
       .then(response => response.json())
       .then(data => setBooks(data))
       .catch(() => {
-        // Fallback to local JSON if API fails
         import('./books.json').then(module => setBooks(module.default));
       });
   }, []);
 
   return (
-    <div className="book-grid" style={{ backgroundImage: 'url(/hosted/background.jpg)' }}>
+    <div className="book-grid">
       {books.map(book => (
         <BookCard key={book._id} book={book} />
       ))}

@@ -1,23 +1,32 @@
 import React, { useState, useEffect } from 'react';
+import { getUserData, returnBook } from '../services/dataService'; // Import functions to interact with JSON
 
-const UserAccount = () => {
-  const [checkedOutBooks, setCheckedOutBooks] = useState([]);
+//this gets the user data from the JSON and displays the user's account information and their rented books
+const UserAccount = ({ userId }) => {
+  const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-    // Fetch user's checked out books
-  }, []);
+    const data = getUserData(userId);
+    setUserData(data);
+  }, [userId]);
 
   const handleReturn = (bookId) => {
-    // Logic to return the book and update wallet balance
+    returnBook(userId, bookId);
+    const updatedData = getUserData(userId);
+    setUserData(updatedData);
   };
+
+  if (!userData) return <div>Loading...</div>;
 
   return (
     <div>
-      <h2>Your Account</h2>
+      <h2>{userData.name}'s Account</h2>
+      <p>Wallet Balance: ${userData.wallet}</p>
+      <h3>Rented Books:</h3>
       <ul>
-        {checkedOutBooks.map(book => (
-          <li key={book._id}>
-            {book.title} - <button onClick={() => handleReturn(book._id)}>Return</button>
+        {userData.rentedBooks.map((bookId) => (
+          <li key={bookId}>
+            Book ID: {bookId} <button onClick={() => handleReturn(bookId)}>Return</button>
           </li>
         ))}
       </ul>
